@@ -67,7 +67,9 @@ var QuizModule = function() {
             //console.log(questions[i].answers);
             questions[i].answers.forEach(function(element){
                 if (userAnswer == element){
-                    return console.log("correct " + element);
+                    console.log("correct " + element);
+                } else if (userAnswer === ""){
+                    console.log("type your answer");       
                 } else if (userAnswer !== element){
                     console.log("not correct " + element);
                 }
