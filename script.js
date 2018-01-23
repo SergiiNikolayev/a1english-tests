@@ -9,7 +9,7 @@ var questionsList = [{
     },
     answers: ["heard", "heard1", "heard2"]
 }, {
-    name: "read",
+    name: "002",
     hint: "read",
     question: {
         beforeInput: "I ",
@@ -17,7 +17,7 @@ var questionsList = [{
     },
     answers: ["read", "read1", "read2"]
 }];
-var questionsList2 = [{
+/*var questionsList2 = [{
     name: "0012",
     hint: "heard22",
     question: {
@@ -35,21 +35,21 @@ var questionsList2 = [{
     answers: ["read", "read1", "read2"]
 }];
 var questionsList3 = [{
-    name: "001dsfs",
-    hint: "3heard",
+    name: "3heardName",
+    hint: "3heardHint",
     question: {
         beforeInput: "I ",
         afterInput: " 33333(hear) a new song on the radio."
     },
-    answers: ["3heard", "3heard1", "3heard2"]
+    answers: ["3h", "3h1", "3h2"]
 }, {
-    name: "333333read",
-    hint: "3333read",
+    name: "3readName",
+    hint: "3readHint",
     question: {
         beforeInput: "I ",
         afterInput: " (read) three books last week."
     },
-    answers: ["read", "read1", "read2"]
+    answers: ["3r", "3r1", "3r2"]
 }];
 var questionsList4 = [{
     name: "001222",
@@ -67,17 +67,19 @@ var questionsList4 = [{
         afterInput: " (read) three books last week."
     },
     answers: ["read", "read1", "read2"]
-}];
+}];*/
 
 var qWrapper = document.getElementById("questionsWrapper");
-var qWrapper2 = document.getElementById("questionsWrapper2");
+/*var qWrapper2 = document.getElementById("questionsWrapper2");
 var qWrapper3 = document.getElementById("questionsWrapper3");
-var qWrapper4 = document.getElementById("questionsWrapper4");
+var qWrapper4 = document.getElementById("questionsWrapper4");*/
 
 /**
- * htmlWraper - or html id, where to add content
+ * htmlWraper - id, where to add content
  *
  * */
+
+
 var QuizModule = function(htmlWrapper, listOfQuestions) {
     var questions = [];
 
@@ -121,17 +123,16 @@ var QuizModule = function(htmlWrapper, listOfQuestions) {
     function check(id, userAnswer) {
         console.log("check: ", userAnswer + " , " + id);
         var length = questions.length;
+
         for (var i = 0; i <= length; i++) {
-            questions[i].answers.forEach(function(element){
-                if (userAnswer == element){
-                    console.log("correct");
-                } else if (userAnswer !== element){
-                    console.log("not correct: " + element);
-                }
-            });
-/*            if (userAnswer == questions[i].answers[0] || userAnswer == questions[i].answers[1] || userAnswer == questions[i].answers[2]){
+           questions[i].answers.forEach(function(element){
+            if (userAnswer == element){
                 console.log("correct " + element);
-            }*/
+            } else if (userAnswer !== element){
+                console.log("not correct " + element);
+            }
+
+            });
         }
     }
 
@@ -148,18 +149,15 @@ var QuizModule = function(htmlWrapper, listOfQuestions) {
 
 var questionHandler = new QuizModule(qWrapper);
 questionHandler.init(questionsList);
-
-var questionHandler = new QuizModule(qWrapper2, questionsList2);
+/*var questionHandler = new QuizModule(qWrapper2, questionsList2);
 questionHandler.init(questionsList2);
-
 var questionHandler = new QuizModule(qWrapper3);
-questionHandler.init(questionsList3);
+questionHandler.init(questionsList3);*/
 
 
 
 document.addEventListener('click', function(e) {
     console.log(e);
-    e.preventDefault();
     if (e.target.id.indexOf("hint") !== -1) {
         questionHandler.hint(e.target.id)
     } else if (e.target.id.indexOf("check") !== -1) {
