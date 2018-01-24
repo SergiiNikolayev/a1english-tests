@@ -1,5 +1,6 @@
 console.clear();
 //we received this array from DB
+var iAm;
 var heIsNot = ["he is not", "he isn't", "he's not"];
 var sheIsNot = ["she is not", "she isn't", "she's not"];
 
