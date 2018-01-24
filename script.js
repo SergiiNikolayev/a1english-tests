@@ -127,23 +127,20 @@ var QuizModule = function (htmlWrapper, listOfQuestions) {
         var button = document.getElementById(id);
         for (var i = 0; i < length; i++) {
             if (questions[i].name == questionId) {
-                //console.log(questions[i].answers);
-                questions[i].answers.forEach(function (element) {
                     if (userAnswer == "" || userAnswer == " "){
                         console.log("type your answer");
                         return button.innerHTML = "Введите слово";
-                    } else if (userAnswer !== element) {
-                        console.log("not correct " + element);
+                    } else if (questions[i].answers.indexOf(userAnswer) === -1) {
+                        console.log("not correct " + userAnswer);
                         button.style.backgroundColor = "#ff4d4d";
                         button.style.color = "white";
                         return button.innerHTML = "Еще раз";
-                    } else if (userAnswer == element){
-                        console.log("correct " + element);
-                        button.style.backgroundColor = "green";
+                    } else if (questions[i].answers.indexOf(userAnswer) > -1){
+                        console.log("correct " + userAnswer);
+                        button.style.backgroundColor = "#5aab5a";
                         button.style.color = "white";
                         return button.innerHTML = "Правильно";
                     }
-                });
             }
 
 
