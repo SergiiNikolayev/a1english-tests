@@ -3,10 +3,82 @@ console.clear();
 /**
  * Our DataBases
  * */
-var iAme;
-var heIsNot = ["he is not", "he isn't", "he's not"];
-var sheIsNot = ["she is not", "she isn't", "she's not"];
 
+var questionsListIs01 = [{
+    name: "002",
+    hint: "are",
+    question: {
+        beforeInput: "We ",
+        afterInput: "at work."
+    },
+    answers: ["are", "\'re"]
+}, {
+    name: "003",
+    hint: "is",
+    question: {
+        beforeInput: "She ",
+        afterInput: "a nice woman."
+    },
+    answers: ["is", "\'s"]
+}, {
+    name: "004",
+    hint: "is",
+    question: {
+        beforeInput: "It ",
+        afterInput: "a new car."
+    },
+    answers: ["is", "\'s"]
+}, {
+    name: "005",
+    hint: "are",
+    question: {
+        beforeInput: "They ",
+        afterInput: "young people."
+    },
+    answers: ["are", "\'re"]
+}, {
+    name: "006",
+    hint: "is",
+    question: {
+        beforeInput: "It ",
+        afterInput: "very important."
+    },
+    answers: ["is", "\'s"]
+}, {
+    name: "007",
+    hint: "is",
+    question: {
+        beforeInput: "This house ",
+        afterInput: "big."
+    },
+    answers: ["is", "\'s"]
+}, {
+    name: "008",
+    hint: "are",
+    question: {
+        beforeInput: "These children ",
+        afterInput: "at home."
+    },
+    answers: ["are", "\'re"]
+}, {
+    name: "009",
+    hint: "is",
+    question: {
+        beforeInput: "That company ",
+        afterInput: "large."
+    },
+    answers: ["is", "\'s"]
+}, {
+    name: "010",
+    hint: "are",
+    question: {
+        beforeInput: "Those men ",
+        afterInput: "old."
+    },
+    answers: ["are", "\'re"]
+}];
+
+/*
 var questionsList = [{
     name: "001",
     hint: "heard",
@@ -14,7 +86,7 @@ var questionsList = [{
         beforeInput: "I ",
         afterInput: "1 (hear) a new song on the radio."
     },
-    answers: heIsNot//["heard", "heard1", "heard2", "he is not", "he isn't"]
+    answers: ["heard", "heard1", "heard2", "he is not", "he isn't"]
 }, {
     name: "002",
     hint: "read",
@@ -61,14 +133,14 @@ var questionsList3 = [{
         afterInput: " (read) three books last week."
     },
     answers: ["3read", "3read1", "3read2"]
-}];
+}];*/
 
 /**
  * HTML id's
  * */
-var qWrapper = document.getElementById("questionsWrapper");
-var qWrapper2 = document.getElementById("questionsWrapper2");
-var qWrapper3 = document.getElementById("questionsWrapper3");
+
+var qWrapper = document.getElementById("questionsWrapperIs01");
+
 
 
 /**
@@ -149,6 +221,9 @@ var QuizModule = function (htmlWrapper, listOfQuestions) {
 
     function hint(id) {
         console.log("hint: ", id);
+        //TO DO: past first right answer in our input fiels from DB.answers[0]
+        var answerInput = document.getElementById(id);
+        answerInput.innerHTML = questions[i].answer[0];
     }
 
     return {
@@ -164,6 +239,23 @@ var QuizModule = function (htmlWrapper, listOfQuestions) {
  * questionHandler's
  *
  * */
+
+var questionHandlerIs01 = new QuizModule(qWrapper);
+questionHandlerIs01.init(questionsListIs01);
+document.addEventListener('click', function (e) {
+    console.log(e);
+    if (e.target.id.indexOf("hint") !== -1) {
+        questionHandlerIs01.hint(e.target.id)
+    } else if (e.target.id.indexOf("check") !== -1) {
+        var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
+        var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
+        questionHandlerIs01.check(e.target.id, userInputNoSpace)
+    } else {
+        console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
+    }
+});
+
+/*
 
 var questionHandler = new QuizModule(qWrapper);
 questionHandler.init(questionsList);
@@ -213,4 +305,4 @@ document.addEventListener('click', function (e) {
     } else {
         console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
     }
-});
+});*/
