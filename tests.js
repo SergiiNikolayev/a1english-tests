@@ -181,7 +181,7 @@ var QuizModule = function (htmlWrapper, listOfQuestions) {
                     questionsArray[i].question.afterInput + "</div>" +
                     "</td>" +
                     "<td>" +
-                    "<button id=" + questionsArray[i].name + "-check" + ">Проверить</button><button id=" + questionsArray[i].hint + "-hint" + ">Подсказка</button>" +
+                    "<button id=" + questionsArray[i].name + "-check" + ">Проверить</button><button id="+ questionsArray[i].name + "-hint-" + ">Правильный ответ</button>" +
                     "</td>" +
                     "</tr>";
                 htmlWrapper.innerHTML += content;
@@ -219,13 +219,27 @@ var QuizModule = function (htmlWrapper, listOfQuestions) {
         }
     }
 
-    function hint(id) {
+    function hint(id, inputId) {
+        console.log("hint: " +id+ " | inputId: " + inputId.id);
         var length = questions.length;
         console.log("hint: ", id);
-        //TO DO: past first right answer in our input fiels from DB.answers[0]
-        var answerInput = document.getElementById(id);
+        //TO DO: past first right answer in our input fields from DB.answers[0]
+        var answerInput = document.getElementById(id.slice(0, id.indexOf("-")));//cutting number id from hint id
+        console.log("answerInput: " + answerInput.id);
+
         for (var i = 0; i < length; i++) {
-            answerInput.innerHTML = questions[i].answers[0];
+            if (questions[i].name == inputId) { //if our question id is that we need for our input
+                if(answerInput == inputId ){ //then if help button right for our input
+                    //console.log("Haribol!");
+                    console.log(questions[i].answers[0]);
+                    return answerInput.innerHTML = questions[i].answers[0];
+                } else if (questions[i].answers.indexOf(userAnswer) === -1) {
+                } else if (questions[i].answers.indexOf(userAnswer) > -1) {
+
+            }
+
+        }
+
         }
     }
 
@@ -247,10 +261,11 @@ var questionHandlerIs01 = new QuizModule(qWrapper);
 questionHandlerIs01.init(questionsListIs01);
 document.addEventListener('click', function (e) {
     console.log(e);
+    var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
     if (e.target.id.indexOf("hint") !== -1) {
-        questionHandlerIs01.hint(e.target.id)
+        questionHandlerIs01.hint(e.target.id, input)
     } else if (e.target.id.indexOf("check") !== -1) {
-        var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
+
         var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
         questionHandlerIs01.check(e.target.id, userInputNoSpace)
     } else {
