@@ -220,26 +220,24 @@ var QuizModule = function (htmlWrapper, listOfQuestions) {
     }
 
     function hint(id, inputId) {
-        console.log("hint: " +id+ " | inputId: " + inputId.id);
+        console.log("hint: " +id+ " | inputId: " + inputId);
         var length = questions.length;
         console.log("hint: ", id);
+        var pureInputVal = document.getElementById(inputId);
+        var btn = document.getElementById(id);
         //TO DO: past first right answer in our input fields from DB.answers[0]
-        var answerInput = document.getElementById(id.slice(0, id.indexOf("-")));//cutting number id from hint id
-        console.log("answerInput: " + answerInput.id);
-
+/*        //var answerInputFromHint = document.getElementById(id.slice(0, id.indexOf("-")));//cutting number id from hint id
+        //console.log("answerInputFromHint: " + answerInputFromHint.id);*/
         for (var i = 0; i < length; i++) {
             if (questions[i].name == inputId) { //if our question id is that we need for our input
-                if(answerInput == inputId ){ //then if help button right for our input
-                    //console.log("Haribol!");
+                console.log(questions[i].answers[0]);
+                console.log(pureInputVal);
+                return btn.innerHTML = questions[i].answers[0];
+/*                if(answerInputFromHint == inputId ){ //then if help button right for our input
                     console.log(questions[i].answers[0]);
-                    return answerInput.innerHTML = questions[i].answers[0];
-                } else if (questions[i].answers.indexOf(userAnswer) === -1) {
-                } else if (questions[i].answers.indexOf(userAnswer) > -1) {
+                }*/
 
             }
-
-        }
-
         }
     }
 
@@ -263,7 +261,7 @@ document.addEventListener('click', function (e) {
     console.log(e);
     var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
     if (e.target.id.indexOf("hint") !== -1) {
-        questionHandlerIs01.hint(e.target.id, input)
+        questionHandlerIs01.hint(e.target.id, input.id)
     } else if (e.target.id.indexOf("check") !== -1) {
 
         var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
