@@ -4,7 +4,9 @@ console.clear();
  * Our DataBases
  * */
 
-var questionsListIs01 = [{
+/** 1.1 Present Simple ‘Be’ – Positive */
+
+var presentSimpleBePositive1_1db = [{
     name: "002",
     hint: "are",
     question: {
@@ -78,68 +80,97 @@ var questionsListIs01 = [{
     answers: ["are", "\'re"]
 }];
 
-/*
-var questionsList = [{
-    name: "001",
-    hint: "heard",
-    question: {
-        beforeInput: "I ",
-        afterInput: "1 (hear) a new song on the radio."
-    },
-    answers: ["heard", "heard1", "heard2", "he is not", "he isn't"]
-}, {
-    name: "002",
-    hint: "read",
-    question: {
-        beforeInput: "I ",
-        afterInput: " (read) three books last week."
-    },
-    answers: ["read", "read1", "read2"]
-}];
+/** 1.2 Present Simple ‘Be’ – Negative */
 
-var questionsList2 = [{
-    name: "021",
-    hint: "is",
-    question: {
-        beforeInput: "She ",
-        afterInput: " a nice woman"
-    },
-    answers: ["is", "'s"]
-}, {
-    name: "022",
+var presentSimpleBeNegative1_2db = [{
+    name: "011",
     hint: "are",
     question: {
-        beforeInput: "We ",
-        afterInput: " at work"
+        beforeInput: "It ",
+        afterInput: "a large company."
     },
-    answers: ["are", "'re"]
-
+    answers: ["is not"]
+}, {
+    name: "012",
+    hint: "is",
+    question: {
+        beforeInput: "They  ",
+        afterInput: "at home."
+    },
+    answers: ["are not"]
+}, {
+    name: "013",
+    hint: "is",
+    question: {
+        beforeInput: "It ",
+        afterInput: "a big number."
+    },
+    answers: ["is not"]
+}, {
+    name: "014",
+    hint: "are",
+    question: {
+        beforeInput: "This man  ",
+        afterInput: "young."
+    },
+    answers: ["is not"]
+}, {
+    name: "015",
+    hint: "is",
+    question: {
+        beforeInput: "They ",
+        afterInput: "old people."
+    },
+    answers: ["are not"]
+}, {
+    name: "016",
+    hint: "is",
+    question: {
+        beforeInput: "It ",
+        afterInput: "an important problem."
+    },
+    answers: ["is not"]
+}, {
+    name: "017",
+    hint: "are",
+    question: {
+        beforeInput: "This car ",
+        afterInput: "small."
+    },
+    answers: ["is not"]
+}, {
+    name: "018",
+    hint: "is",
+    question: {
+        beforeInput: "These people  ",
+        afterInput: "bad."
+    },
+    answers: ["are not"]
+}, {
+    name: "019",
+    hint: "are",
+    question: {
+        beforeInput: "That house  ",
+        afterInput: "high."
+    },
+    answers: ["is not"]
+}, {
+    name: "020",
+    hint: "are",
+    question: {
+        beforeInput: "It  ",
+        afterInput: "a new fact."
+    },
+    answers: ["is not"]
 }];
 
-
-var questionsList3 = [{
-    name: "031",
-    hint: "3heard",
-    question: {
-        beforeInput: "I ",
-        afterInput: "3 (hear) a new song on the radio."
-    },
-    answers: ["3heard", "3heard1", "3heard2"]
-}, {
-    name: "032",
-    hint: "3read",
-    question: {
-        beforeInput: "I ",
-        afterInput: " (read) three books last week."
-    },
-    answers: ["3read", "3read1", "3read2"]
-}];*/
 
 /**
  * HTML id's
  * */
 
 var qWrapper = document.getElementById("questionsWrapperIs01");
+var qWrapper12 = document.getElementById("psbn12");
 
 
 
@@ -255,70 +286,41 @@ var QuizModule = function (htmlWrapper, listOfQuestions) {
  *
  * */
 
-var questionHandlerIs01 = new QuizModule(qWrapper);
-questionHandlerIs01.init(questionsListIs01);
-document.addEventListener('click', function (e) {
-    console.log(e);
-    var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
-    if (e.target.id.indexOf("hint") !== -1) {
-        questionHandlerIs01.hint(e.target.id, input.id)
-    } else if (e.target.id.indexOf("check") !== -1) {
-
-        var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
-        questionHandlerIs01.check(e.target.id, userInputNoSpace)
-    } else {
-        console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
-    }
-});
-
-/*
-
-var questionHandler = new QuizModule(qWrapper);
-questionHandler.init(questionsList);
-document.addEventListener('click', function (e) {
-    console.log(e);
-    if (e.target.id.indexOf("hint") !== -1) {
-        questionHandler.hint(e.target.id)
-    } else if (e.target.id.indexOf("check") !== -1) {
+if (qWrapper){
+    var questionHandlerIs01 = new QuizModule(qWrapper);
+    questionHandlerIs01.init(presentSimpleBePositive1_1db);
+    document.addEventListener('click', function (e) {
+        console.log(e);
         var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
-        var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
-        questionHandler.check(e.target.id, userInputNoSpace)
-    } else {
-        console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
-    }
-});
+        if (e.target.id.indexOf("hint") !== -1) {
+            questionHandlerIs01.hint(e.target.id, input.id)
+        } else if (e.target.id.indexOf("check") !== -1) {
+
+            var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
+            questionHandlerIs01.check(e.target.id, userInputNoSpace)
+        } else {
+            console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
+        }
+    });
+}
 
 
-
-var questionHandler2 = new QuizModule(qWrapper2);
-questionHandler2.init(questionsList2);
-document.addEventListener('click', function (e) {
-    console.log(e);
-    if (e.target.id.indexOf("hint") !== -1) {
-        questionHandler2.hint(e.target.id)
-    } else if (e.target.id.indexOf("check") !== -1) {
+if (qWrapper12){
+    var questionHandler12 = new QuizModule(qWrapper12);
+    questionHandler12.init(presentSimpleBeNegative1_2db);
+    document.addEventListener('click', function (e) {
+        console.log(e);
         var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
-        var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
-        questionHandler2.check(e.target.id, userInputNoSpace)
-    } else {
-        console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
-    }
-});
+        if (e.target.id.indexOf("hint") !== -1) {
+            questionHandler12.hint(e.target.id, input.id)
+        } else if (e.target.id.indexOf("check") !== -1) {
+
+            var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
+            questionHandler12.check(e.target.id, userInputNoSpace)
+        } else {
+            console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
+        }
+    });
+}
 
 
-
-
-var questionHandler3 = new QuizModule(qWrapper3);
-questionHandler3.init(questionsList3);
-document.addEventListener('click', function (e) {
-    console.log(e);
-    if (e.target.id.indexOf("hint") !== -1) {
-        questionHandler3.hint(e.target.id)
-    } else if (e.target.id.indexOf("check") !== -1) {
-        var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
-        var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
-        questionHandler3.check(e.target.id, userInputNoSpace)
-    } else {
-        console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
-    }
-});*/
