@@ -249,7 +249,7 @@ var presentSimpleBeQuestions1_3db = [{
 }];
 
 
-/** Present Simple "Be" – Mixed */
+/** 1.4 Present Simple "Be" – Mixed */
 
 var presentSimpleBeMixed1_4db = [{
     name: "041",
@@ -334,6 +334,176 @@ var presentSimpleBeMixed1_4db = [{
 }];
 
 
+/** Present Simple - Positive - 1 */
+
+
+var presentSimplePos_1db = [{
+    name: "011",
+    hint: "wants",
+    question: {
+        beforeInput: "We want - she ",
+        afterInput: "."
+    },
+    answers: ["wants"]
+}, {
+    name: "012",
+    hint: "knows",
+    question: {
+        beforeInput: "I know - he ",
+        afterInput: "."
+    },
+    answers: ["knows"]
+}, {
+    name: "013",
+    hint: "works",
+    question: {
+        beforeInput: "They work - it ",
+        afterInput: "."
+    },
+    answers: ["works"]
+}, {
+    name: "014",
+    hint: "has",
+    question: {
+        beforeInput: "You have - she ",
+        afterInput: "."
+    },
+    answers: ["has"]
+}, {
+    name: "015",
+    hint: "comes",
+    question: {
+        beforeInput: "They come - she  ",
+        afterInput: "."
+    },
+    answers: ["comes"]
+}, {
+    name: "016",
+    hint: "goes",
+    question: {
+        beforeInput: "We go - it ",
+        afterInput: "."
+    },
+    answers: ["goes"]
+}, {
+    name: "017",
+    hint: "gives",
+    question: {
+        beforeInput: "You give - he ",
+        afterInput: "."
+    },
+    answers: ["gives"]
+}, {
+    name: "018",
+    hint: "sees",
+    question: {
+        beforeInput: "They see - she ",
+        afterInput: "."
+    },
+    answers: ["sees"]
+}, {
+    name: "019",
+    hint: "takes",
+    question: {
+        beforeInput: "I take - it ",
+        afterInput: "."
+    },
+    answers: ["takes"]
+}, {
+    name: "020",
+    hint: "does",
+    question: {
+        beforeInput: "We do - he ",
+        afterInput: "."
+    },
+    answers: ["does"]
+}];
+
+/** Present Simple - Positive - 2 */
+
+
+var presentSimplePos_2db = [{
+    name: "011",
+    hint: "want",
+    question: {
+        beforeInput: "We ",
+        afterInput: "bananas (want)"
+    },
+    answers: ["want"]
+}, {
+    name: "012",
+    hint: "uses",
+    question: {
+        beforeInput: "That man ",
+        afterInput: "this computer (use)"
+    },
+    answers: ["uses"]
+}, {
+    name: "013",
+    hint: "have",
+    question: {
+        beforeInput: "These people ",
+        afterInput: "a big car (have)"
+    },
+    answers: ["have"]
+}, {
+    name: "014",
+    hint: "goes",
+    question: {
+        beforeInput: "He ",
+        afterInput: "there in the morning (go)"
+    },
+    answers: ["goes"]
+}, {
+    name: "015",
+    hint: "like",
+    question: {
+        beforeInput: "I really ",
+        afterInput: "apples (like)"
+    },
+    answers: ["like"]
+}, {
+    name: "016",
+    hint: "thinks",
+    question: {
+        beforeInput: "She ",
+        afterInput: "about it every evening (think)"
+    },
+    answers: ["thinks"]
+}, {
+    name: "017",
+    hint: "come",
+    question: {
+        beforeInput: "I ",
+        afterInput: "here every Sunday (come)"
+    },
+    answers: ["come"]
+}, {
+    name: "018",
+    hint: "has",
+    question: {
+        beforeInput: "This company ",
+        afterInput: "many problems (have)"
+    },
+    answers: ["has"]
+}, {
+    name: "019",
+    hint: "does",
+    question: {
+        beforeInput: "This woman ",
+        afterInput: "yoga every Saturday morning (do)"
+    },
+    answers: ["does"]
+}, {
+    name: "020",
+    hint: "makes",
+    question: {
+        beforeInput: "He ",
+        afterInput: "pizzas every Friday evening (make)"
+    },
+    answers: ["makes"]
+}];
+
 
 
 
@@ -346,6 +516,8 @@ var qWrapper = document.getElementById("questionsWrapperIs01");
 var qWrapper12 = document.getElementById("psbn12");
 var qWrapper13 = document.getElementById("psbq13");
 var qWrapper14 = document.getElementById("psbm14");
+var qWrapperPS1 = document.getElementById("present-simple-pos-1");
+var qWrapperPS2 = document.getElementById("present-simple-pos-2");
 
 
 
@@ -529,6 +701,42 @@ if (qWrapper14){
 
             var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
             questionHandler14.check(e.target.id, userInputNoSpace)
+        } else {
+            console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
+        }
+    });
+}
+
+if (qWrapperPS1){
+    var questionHandlerPS1 = new QuizModule(qWrapperPS1);
+    questionHandlerPS1.init(presentSimplePos_1db);
+    document.addEventListener('click', function (e) {
+        console.log(e);
+        var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
+        if (e.target.id.indexOf("hint") !== -1) {
+            questionHandlerPS1.hint(e.target.id, input.id)
+        } else if (e.target.id.indexOf("check") !== -1) {
+
+            var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
+            questionHandlerPS1.check(e.target.id, userInputNoSpace)
+        } else {
+            console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
+        }
+    });
+}
+
+if (qWrapperPS2){
+    var questionHandlerPS2 = new QuizModule(qWrapperPS2);
+    questionHandlerPS2.init(presentSimplePos_2db);
+    document.addEventListener('click', function (e) {
+        console.log(e);
+        var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
+        if (e.target.id.indexOf("hint") !== -1) {
+            questionHandlerPS2.hint(e.target.id, input.id)
+        } else if (e.target.id.indexOf("check") !== -1) {
+
+            var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
+            questionHandlerPS2.check(e.target.id, userInputNoSpace)
         } else {
             console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
         }
