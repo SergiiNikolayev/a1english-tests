@@ -234,7 +234,7 @@ var presentSimpleBeQuestions1_3db = [{
     name: "019",
     hint: "is it a new place",
     question: {
-        beforeInput: "(it / a new place / is  ",
+        beforeInput: "(it / a new place / is)  ",
         afterInput: "?"
     },
     answers: ["is it a new place"]
@@ -253,84 +253,84 @@ var presentSimpleBeQuestions1_3db = [{
 
 var presentSimpleBeMixed1_4db = [{
     name: "041",
-    hint: "is he a great person",
+    hint: "these children are happy",
     question: {
-        beforeInput: "(a great person/is/he)  ",
-        afterInput: "?"
+        beforeInput: "(these children / happy)  ",
+        afterInput: "."
     },
-    answers: ["is he a great person" , "is he a great person?"]
+    answers: ["these children are happy"]
 }, {
     name: "042",
-    hint: "are you very busy",
+    hint: "is this place good?",
     question: {
-        beforeInput: "(very busy / are / you)  ",
+        beforeInput: "(good / this place)  ",
         afterInput: "?"
     },
-    answers: ["are you very busy", "are you very busy?"]
+    answers: ["is this place good", "is this place good?"]
 }, {
     name: "043",
-    hint: "are these people at home",
+    hint: "that company is not big",
     question: {
-        beforeInput: "(at home / these people / are)  ",
-        afterInput: "?"
+        beforeInput: "(not / that company / big)  ",
+        afterInput: "."
     },
-    answers: ["are these people at home", "are these people at home?"]
+    answers: ["that company is not big"]
 }, {
     name: "044",
-    hint: "are the children in the park",
+    hint: "is it an important fact",
     question: {
-        beforeInput: "(in the park / the children / are)   ",
+        beforeInput: "(it / an important fact)   ",
         afterInput: "?"
     },
-    answers: ["are the children in the park", "are the children in the park?"]
+    answers: ["is it an important fact", "is it an important fact?"]
 }, {
     name: "045",
-    hint: "is it a large number",
+    hint: "they are not right",
     question: {
-        beforeInput: "(a large number / it / is)  ",
-        afterInput: "?"
+        beforeInput: "(they / right / not)  ",
+        afterInput: "."
     },
-    answers: ["is it a large number", "is it a large number?"]
+    answers: ["they are not right"]
 }, {
     name: "046",
-    hint: "are the women happy",
+    hint: "is she a young woman?",
     question: {
-        beforeInput: "(the women / are / happy)  ",
+        beforeInput: "(a young woman / she)  ",
         afterInput: "?"
     },
-    answers: ["are the women happy", "are the women happy?"]
+    answers: ["is she a young woman", "is she a young woman?"]
 }, {
     name: "047",
-    hint: "is this problem important",
+    hint: "it is not a bad thing",
     question: {
-        beforeInput: "(is / important / this problem) ",
-        afterInput: "?"
+        beforeInput: "(it / a bad thing / not) ",
+        afterInput: "."
     },
-    answers: ["is this problem important", "is this problem important?"]
+    answers: ["it is not a bad thing"]
 }, {
     name: "048",
-    hint: "are these men right",
+    hint: "is this city old",
     question: {
-        beforeInput: "(right / these men / are)  ",
+        beforeInput: "(old / this city)  ",
         afterInput: "?"
     },
-    answers: ["are these men right", "are these men right?"]
+    answers: ["is this city old", "is this city old?"]
 }, {
     name: "049",
-    hint: "is it a new place",
+    hint: "these apples are cheap",
     question: {
-        beforeInput: "(it / a new place / is  ",
-        afterInput: "?"
+        beforeInput: "(these apples / cheap)  ",
+        afterInput: "."
     },
-    answers: ["is it a new place"]
+    answers: ["these apples are cheap"]
 }, {
     name: "040",
-    hint: "am I ready",
+    hint: "is this computer expensive",
     question: {
-        beforeInput: "(I / ready / am)   ",
+        beforeInput: "(this computer / expensive)   ",
         afterInput: "?"
     },
-    answers: ["am I ready", "am I ready?"]
+    answers: ["is this computer expensive", "is this computer expensive?"]
 }];
 
 
