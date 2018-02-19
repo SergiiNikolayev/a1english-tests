@@ -164,6 +164,8 @@ var presentSimpleBeNegative1_2db = [{
     answers: ["is not"]
 }];
 
+/** 1.3	Present Simple "Be" – Questions  */
+
 var presentSimpleBeQuestions1_3db = [{
     name: "011",
     hint: "is he a great person",
@@ -171,7 +173,7 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(a great person/is/he)  ",
         afterInput: "?"
     },
-    answers: ["is he a great person"]
+    answers: ["is he a great person" , "is he a great person?"]
 }, {
     name: "012",
     hint: "are you very busy",
@@ -179,7 +181,7 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(very busy / are / you)  ",
         afterInput: "?"
     },
-    answers: ["are you very busy"]
+    answers: ["are you very busy", "are you very busy?"]
 }, {
     name: "013",
     hint: "are these people at home",
@@ -187,7 +189,7 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(at home / these people / are)  ",
         afterInput: "?"
     },
-    answers: ["are these people at home"]
+    answers: ["are these people at home", "are these people at home?"]
 }, {
     name: "014",
     hint: "are the children in the park",
@@ -195,7 +197,7 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(in the park / the children / are)   ",
         afterInput: "?"
     },
-    answers: ["are the children in the park"]
+    answers: ["are the children in the park", "are the children in the park?"]
 }, {
     name: "015",
     hint: "is it a large number",
@@ -203,7 +205,7 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(a large number / it / is)  ",
         afterInput: "?"
     },
-    answers: ["is it a large number"]
+    answers: ["is it a large number", "is it a large number?"]
 }, {
     name: "016",
     hint: "are the women happy",
@@ -211,7 +213,7 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(the women / are / happy)  ",
         afterInput: "?"
     },
-    answers: ["are the women happy"]
+    answers: ["are the women happy", "are the women happy?"]
 }, {
     name: "017",
     hint: "is this problem important",
@@ -219,7 +221,7 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(is / important / this problem) ",
         afterInput: "?"
     },
-    answers: ["is this problem important"]
+    answers: ["is this problem important", "is this problem important?"]
 }, {
     name: "018",
     hint: "are these men right",
@@ -227,7 +229,7 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(right / these men / are)  ",
         afterInput: "?"
     },
-    answers: ["are these men right"]
+    answers: ["are these men right", "are these men right?"]
 }, {
     name: "019",
     hint: "is it a new place",
@@ -243,8 +245,97 @@ var presentSimpleBeQuestions1_3db = [{
         beforeInput: "(I / ready / am)   ",
         afterInput: "?"
     },
-    answers: ["am I ready"]
+    answers: ["am I ready", "am I ready?"]
 }];
+
+
+/** Present Simple "Be" – Mixed */
+
+var presentSimpleBeMixed1_4db = [{
+    name: "041",
+    hint: "is he a great person",
+    question: {
+        beforeInput: "(a great person/is/he)  ",
+        afterInput: "?"
+    },
+    answers: ["is he a great person" , "is he a great person?"]
+}, {
+    name: "042",
+    hint: "are you very busy",
+    question: {
+        beforeInput: "(very busy / are / you)  ",
+        afterInput: "?"
+    },
+    answers: ["are you very busy", "are you very busy?"]
+}, {
+    name: "043",
+    hint: "are these people at home",
+    question: {
+        beforeInput: "(at home / these people / are)  ",
+        afterInput: "?"
+    },
+    answers: ["are these people at home", "are these people at home?"]
+}, {
+    name: "044",
+    hint: "are the children in the park",
+    question: {
+        beforeInput: "(in the park / the children / are)   ",
+        afterInput: "?"
+    },
+    answers: ["are the children in the park", "are the children in the park?"]
+}, {
+    name: "045",
+    hint: "is it a large number",
+    question: {
+        beforeInput: "(a large number / it / is)  ",
+        afterInput: "?"
+    },
+    answers: ["is it a large number", "is it a large number?"]
+}, {
+    name: "046",
+    hint: "are the women happy",
+    question: {
+        beforeInput: "(the women / are / happy)  ",
+        afterInput: "?"
+    },
+    answers: ["are the women happy", "are the women happy?"]
+}, {
+    name: "047",
+    hint: "is this problem important",
+    question: {
+        beforeInput: "(is / important / this problem) ",
+        afterInput: "?"
+    },
+    answers: ["is this problem important", "is this problem important?"]
+}, {
+    name: "048",
+    hint: "are these men right",
+    question: {
+        beforeInput: "(right / these men / are)  ",
+        afterInput: "?"
+    },
+    answers: ["are these men right", "are these men right?"]
+}, {
+    name: "049",
+    hint: "is it a new place",
+    question: {
+        beforeInput: "(it / a new place / is  ",
+        afterInput: "?"
+    },
+    answers: ["is it a new place"]
+}, {
+    name: "040",
+    hint: "am I ready",
+    question: {
+        beforeInput: "(I / ready / am)   ",
+        afterInput: "?"
+    },
+    answers: ["am I ready", "am I ready?"]
+}];
+
+
+
+
 
 
 /**
@@ -254,6 +345,7 @@ var presentSimpleBeQuestions1_3db = [{
 var qWrapper = document.getElementById("questionsWrapperIs01");
 var qWrapper12 = document.getElementById("psbn12");
 var qWrapper13 = document.getElementById("psbq13");
+var qWrapper14 = document.getElementById("psbm14");
 
 
 
@@ -418,6 +510,25 @@ if (qWrapper13){
 
             var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
             questionHandler13.check(e.target.id, userInputNoSpace)
+        } else {
+            console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
+        }
+    });
+}
+
+
+if (qWrapper14){
+    var questionHandler14 = new QuizModule(qWrapper14);
+    questionHandler14.init(presentSimpleBeMixed1_4db);
+    document.addEventListener('click', function (e) {
+        console.log(e);
+        var input = document.getElementById(e.target.id.slice(0, e.target.id.indexOf("-")));
+        if (e.target.id.indexOf("hint") !== -1) {
+            questionHandler14.hint(e.target.id, input.id)
+        } else if (e.target.id.indexOf("check") !== -1) {
+
+            var userInputNoSpace = input.value.replace(/^\s+|\s+$/g, ""); //.replace(/^\s+|\s+$/g, "") - cutting all spaces before and after input.value
+            questionHandler14.check(e.target.id, userInputNoSpace)
         } else {
             console.log("some error appears when Question was creating check question with name: ", e.target.id.slice(0, e.target.id.indexOf("-")));
         }
